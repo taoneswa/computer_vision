@@ -1,4 +1,4 @@
-
+from PIL import Image
 import streamlit as st
 import cv2
 import tensorflow as tf 
@@ -18,9 +18,9 @@ def splitting(name):
     frame_skip =1
     while success:
         success, frame = vidcap.read() # get next frame from video
-        cv2.imwrite(r"C:\Users\user\Desktop\machine learning\img\frame%d.jpg" % count, frame) 
+        cv2.imwrite(r"C:\Users\user\Desktop\computer_vision\computer_vision\img\frame%d.jpg" % count, frame) 
         if count % frame_skip == 0: # only analyze every n=300 frames
-            print('frame: {}'.format(count)) 
+            #print('frame: {}'.format(count)) 
             pil_img = Image.fromarray(frame) # convert opencv frame (with type()==numpy) into PIL Image
             #st.image(pil_img)
         if count > 20 :
@@ -39,7 +39,8 @@ def preprocessing():
 def predict(x):
     P = tf.keras.applications.inception_v3.decode_predictions(model.predict(x), top=1)
     return P
-    
+
+
 def main():
     st.title("Computer Vision.")
 
@@ -59,15 +60,29 @@ def main():
         vidcap = cv2.VideoCapture(vid) # load video from disk
         cur_frame = 0
         success = True
+    
+    def generatesearchitems():
+        for i in range(20):
+            filename = ("img/frame" + str(i) + ".jpg")
+            x = tf.io.read_file(filename)
+            x = tf.io.decode_image(x,channels=3) 
+            x = tf.image.resize(x,[299,299])
+            x = tf.expand_dims(x, axis=0)
+            x = tf.keras.applications.inception_v3.preprocess_input(x)
+            P = tf.keras.applications.inception_v3.decode_predictions(model.predict(x), top=1)
+            if (P[0][0][1]) == selected :
+                st.success("Items Found")
+                pic =  Image.open(filename)
+                st.image(pic)
+                return 0
+        st.warning("Item not  Found")
         
     if st.button("Detect"):
         output1 = splitting(vid)
         output2 = preprocessing()
         output = predict(output2)
-    
         #st.success('The Output is {}'.format(output))
-        st.success(output)
-
-        
+        st.success("Successfuly detected all the objects now you can search for the item!")
+        items =  generatesearchitems()
 if __name__=='__main__':
     main()

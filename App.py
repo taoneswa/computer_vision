@@ -6,6 +6,7 @@ import numpy as np
 from keras.models import load_model
 from PIL import Image
 import PIL
+
 #Loading the Inception model
 model= load_model('frames.h5',compile=(False))
 

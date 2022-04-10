@@ -63,7 +63,7 @@ def main():
     
     def generatesearchitems():
         for i in range(20):
-            filename = (r"img/frame%d.jpg" ,i)
+            filename = (r"img/frame%d.jpg" % i)
             x = tf.io.read_file(filename)
             x = tf.io.decode_image(x,channels=3) 
             x = tf.image.resize(x,[299,299])

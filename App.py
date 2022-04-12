@@ -71,7 +71,7 @@ def main():
             x = tf.keras.applications.inception_v3.preprocess_input(x)
             P = tf.keras.applications.inception_v3.decode_predictions(model.predict(x), top=1)
             if (P[0][0][1]) == selected :
-                st.success("Items Found")
+                st.success("Item Found")
                 pic =  Image.open(filename)
                 st.image(pic)
                 st.text(P)

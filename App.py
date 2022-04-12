@@ -83,7 +83,7 @@ def main():
         output2 = preprocessing()
         output = predict(output2)
         #st.success('The Output is {}'.format(output))
-        st.success("Successfuly detected all the objects now you can search for the item!")
+        st.success("Successfuly detected all the objects!")
         items =  generatesearchitems()
 if __name__=='__main__':
     main()

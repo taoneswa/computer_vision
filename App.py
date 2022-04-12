@@ -18,7 +18,7 @@ def splitting(name):
     frame_skip =1
     while success:
         success, frame = vidcap.read() # get next frame from video
-        cv2.imwrite(r"frame%d.jpg" % count, frame) 
+        cv2.imwrite(r"img/frame%d.jpg" % count, frame) 
         if count % frame_skip == 0: # only analyze every n=300 frames
             #print('frame: {}'.format(count)) 
             pil_img = Image.fromarray(frame) # convert opencv frame (with type()==numpy) into PIL Image

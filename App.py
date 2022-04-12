@@ -42,7 +42,8 @@ def predict(x):
 
 
 def main():
-    st.title("Computer Vision.")
+    st.image('img/frame2.jpg', width=100)
+    st.title("Object Detection Computer Vision.")
 
     selected = st.text_input("Search for an Object here....",)
     file = st.file_uploader("Upload video",type=(['mp4']))

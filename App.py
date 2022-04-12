@@ -74,6 +74,7 @@ def main():
                 st.success("Items Found")
                 pic =  Image.open(filename)
                 st.image(pic)
+                st.text(P)
                 return 0
         st.warning("Item not  Found")
         

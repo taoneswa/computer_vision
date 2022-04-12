@@ -110,7 +110,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Developed by R204450W & R204459A <a style='display: block; text-align: center; target="_blank">KASIRAI & JAURE</a></p>
+<p>Developed by R204450W KASIRAI & R204459A JAURE</p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)

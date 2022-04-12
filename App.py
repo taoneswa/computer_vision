@@ -42,7 +42,7 @@ def predict(x):
 
 
 def main():
-    st.image('img/frame2.jpg', width=100)
+    st.image('img/logo.jpg', width=100)
     st.title("Object Detection Computer Vision.")
 
     selected = st.text_input("Search for an Object here....",)

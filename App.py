@@ -107,7 +107,7 @@ width: 100%;
 background-color: white;
 color: black;
 text-align: center;
-z-index:-1;
+z-index:0;
 }
 </style>
 <div class="footer">

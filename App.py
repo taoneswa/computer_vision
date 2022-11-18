@@ -111,7 +111,7 @@ z-index:1;
 }
 </style>
 <div class="footer">
-<p>Developed by R204450W KASIRAI & R204459A JAURE</p>
+<p>Developed by R204450W KASIRAI & R204438U CHAREKWA</p>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)

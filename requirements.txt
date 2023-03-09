@@ -4,4 +4,3 @@ numpy
 Pillow
 streamlit
 tensorflow
-tensorflow_gpu
